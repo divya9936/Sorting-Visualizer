@@ -1,0 +1,59 @@
+.header { 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:aliceblue;
+    padding: 10px;
+    text-align: center;
+    font-size:30px;
+}
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.controls label {
+    margin-right: 10px;
+}
+.controls input[type="number"],
+
+.controls input[type="range"] {
+    width: 60px;
+    padding: 5px;
+    margin-right: 10px;
+}
+body {
+    background-color:grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(to left, #5ddfdbf3, #1754b8c6);
+}
+
+.container {
+    display: flex;
+    align-items: flex-end;
+    height: 60vh;
+    width: 90%;
+}
+
+.bar {
+    background-color: blue;
+    margin: 0 1px;
+    flex: 1;
+    border:1px solid black;
+}
+.button {
+    background-color: #3498db;
+    color:black;
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin-right: 10px; 
+}
+.button:hover {
+    background-color: #78b0e4; /* Change color on hover */
+}
