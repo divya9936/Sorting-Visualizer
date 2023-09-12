@@ -10,4 +10,4 @@
 - Selection Sort
 - Insertion Sort
 ## Live Demo
-You can try out the live demo of this project [here](https://dazzling-beijinho-26fd2d.netlify.app).
+You can try out the live demo of this project [here](https://rad-daffodil-a56296.netlify.app).
