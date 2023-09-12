@@ -9,5 +9,6 @@
 - Bubble Sort
 - Selection Sort
 - Insertion Sort
+- Merge Sort
 ## Live Demo
 You can try out the live demo of this project [here](https://rad-daffodil-a56296.netlify.app).
