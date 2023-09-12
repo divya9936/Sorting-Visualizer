@@ -38,6 +38,11 @@ const insertionSortButton = document.getElementById('insertionSortButton');
 insertionSortButton.addEventListener('click', () => {
     insertionSort(); 
 });
+// Event listener for the "Merge Sort" button
+const mergeSortButton = document.getElementById('mergeSortButton');
+mergeSortButton.addEventListener('click', () => {
+    mergeSort();
+});
 // Function to generate random bars and display them in the container
 function generateBars() {
     const barContainer = document.getElementById('barContainer');
@@ -145,3 +150,71 @@ async function insertionSort() {
         bars[i].style.backgroundColor = 'green';
     }
 }
+// Merge Sort implementation
+async function mergeSort() {
+    const bars = document.querySelectorAll('.bar');
+    const array = Array.from(bars).map(bar => parseInt(bar.style.height));
+
+    await mergeSortRecursive(array, 0, array.length - 1);
+}
+
+async function mergeSortRecursive(array, left, right) {
+    if (left < right) {
+        const mid = Math.floor((left + right) / 2);
+        await mergeSortRecursive(array, left, mid);
+        await mergeSortRecursive(array, mid + 1, right);
+        await merge(array, left, mid, right);
+    }
+}
+
+async function merge(array, left, mid, right) {
+    const n1 = mid - left + 1;
+    const n2 = right - mid;
+
+    const leftArray = new Array(n1);
+    const rightArray = new Array(n2);
+
+    for (let i = 0; i < n1; i++) {
+        leftArray[i] = array[left + i];
+    }
+    for (let i = 0; i < n2; i++) {
+        rightArray[i] = array[mid + 1 + i];
+    }
+
+    let i = 0;
+    let j = 0;
+    let k = left;
+
+    while (i < n1 && j < n2) {
+        if (leftArray[i] <= rightArray[j]) {
+            array[k] = leftArray[i];
+            i++;
+        } else {
+            array[k] = rightArray[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) {
+        array[k] = leftArray[i];
+        i++;
+        k++;
+    }
+
+    while (j < n2) {
+        array[k] = rightArray[j];
+        j++;
+        k++;
+    }
+
+    // Update the visual representation of bars
+    const bars = document.querySelectorAll('.bar');
+    for (let i = left; i <= right; i++) {
+        bars[i].style.height = array[i] + 'px';
+    }
+
+    // Delay for visualization
+    await new Promise(resolve => setTimeout(resolve, sortingSpeed));
+}
+
