@@ -44,7 +44,7 @@ function generateBars() {
     barContainer.innerHTML = '';
 
     for (let i = 0; i < arraySize; i++) {
-        const height = getRandomNumber(20, 300); // Adjust min and max values to control bar height
+        const height = getRandomNumber(20, 300); // min and max values to control bar height
         const bar = document.createElement('div');
         bar.className = 'bar';
         bar.style.height = height + 'px';
@@ -61,7 +61,7 @@ async function bubbleSort() {
             bar1.style.backgroundColor = 'red';
             bar2.style.backgroundColor = 'red';
 
-            await new Promise(resolve => setTimeout(resolve,sortingSpeed)); // Adjust the delay for visualization
+            await new Promise(resolve => setTimeout(resolve,sortingSpeed)); //Delay for visualization
 
             const height1 = parseInt(bar1.style.height);
             const height2 = parseInt(bar2.style.height);
@@ -84,7 +84,7 @@ async function selectionSort() {
         let minIndex = i;
         for (let j = i + 1; j < bars.length; j++) {
             bars[j].style.backgroundColor = 'red';
-            await new Promise(resolve => setTimeout(resolve, sortingSpeed)); // Adjust the delay for visualization
+            await new Promise(resolve => setTimeout(resolve, sortingSpeed)); //Delay for visualization
             bars[j].style.backgroundColor = 'blue';
 
             const minHeight = parseInt(bars[minIndex].style.height);
